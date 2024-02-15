@@ -15,12 +15,12 @@ class EnvTest extends DuskTestCase
     {
         $this->browse(function (Browser $b) {
             $b->visit('/test')
-                ->waitForText('APP_ENV')
-                ->waitForText('local')
-                ->waitForText('IS_DUSK_ENV_FILE')
-                ->waitForText('NO')
-                ->waitForText('DB_DATABASE')
-                ->waitForText('dusk_bug');
+                ->assertSee('APP_ENV')
+                ->assertSee('local')
+                ->assertSee('IS_DUSK_ENV_FILE')
+                ->assertSee('NO')
+                ->assertSee('DB_DATABASE')
+                ->assertSee('dusk_bug');
         });
     }
 
@@ -33,12 +33,12 @@ class EnvTest extends DuskTestCase
     {
         $this->browse(function (Browser $b) {
             $b->visit('/test')
-                ->waitForText('APP_ENV')
-                ->waitForText('local')
-                ->waitForText('IS_DUSK_ENV_FILE')
-                ->waitForText('YES')
-                ->waitForText('DB_DATABASE')
-                ->waitForText('testing');
+                ->assertSee('APP_ENV')
+                ->assertSee('local')
+                ->assertSee('IS_DUSK_ENV_FILE')
+                ->assertSee('YES')
+                ->assertSee('DB_DATABASE')
+                ->assertSee('testing');
         });
     }
 }
